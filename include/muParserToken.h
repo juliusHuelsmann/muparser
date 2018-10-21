@@ -205,7 +205,7 @@ namespace mu
           Member variables not necessary for variable tokens will be invalidated.
           \throw nothrow
       */
-      ParserToken& SetVar(TBase *a_pVar, const TString &a_strTok)
+      ParserToken& SetVar(const TBase *a_pVar, const TString &a_strTok)
       {
         m_iCode = cmVAR;
         m_iType = tpDBL;

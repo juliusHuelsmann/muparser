@@ -8,7 +8,7 @@ if (NOT DEFINED CMAKE_BUILD_TYPE)
   set (CMAKE_BUILD_TYPE Release CACHE STRING "Build type")
 endif ()
 
-project(muParserProject)
+project(muParser)
 
 include(CTest)
 enable_testing()
@@ -44,7 +44,6 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic")
 endif()
 
-include_directories("${PROJECT_SOURCE_DIR}/include")
 add_library(muparser
     src/muParserBase.cpp
     src/muParserBytecode.cpp
@@ -56,6 +55,7 @@ add_library(muparser
     src/muParserTest.cpp
     src/muParserTokenReader.cpp
 )
+target_include_directories(muparser PUBLIC "${PROJECT_SOURCE_DIR}/include")
 
 # this compiles the "DLL" interface (C API)
 target_compile_definitions(muparser PRIVATE MUPARSER_DLL)
@@ -80,13 +80,13 @@ set_target_properties(muparser PROPERTIES
 
 # Install the export set for use with the install-tree
 export(TARGETS muparser FILE "${CMAKE_BINARY_DIR}/muparser-targets.cmake")
+target_link_libraries(muparser)
 
 if(ENABLE_SAMPLES)
   add_executable(example1 samples/example1/example1.cpp)
+  #target_include_directories(example1 PRIVATE "${PROJECT_SOURCE_DIR}/include")
+  message("${PROJECT_SOURCE_DIR}/include")
   target_link_libraries(example1 muparser)
-
-  add_executable(example2 samples/example2/example2.c)
-  target_link_libraries(example2 muparser)
 
   add_executable(example3 samples/example3/main.cpp)
   target_link_libraries(example3 muparser)
@@ -110,7 +110,7 @@ install(FILES
     include/muParserDLL.h
     include/muParserError.h
     include/muParserFixes.h
-    include/muParser.h
+    PUBLIC include/muParser.h
     include/muParserInt.h
     include/muParserStack.h
     include/muParserTemplateMagic.h

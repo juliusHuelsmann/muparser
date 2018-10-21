@@ -142,7 +142,7 @@ private:
                     bool a_bAllowOpt = false);
     void DefineConst(const string_type &a_sName, value_type a_fVal);
     void DefineStrConst(const string_type &a_sName, const string_type &a_strVal);
-    void DefineVar(const string_type &a_sName, value_type *a_fVar);
+    void DefineVar(const string_type &a_sName, const value_type *a_fVar);
     void DefinePostfixOprt(const string_type &a_strFun, fun_type1 a_pOprt, bool a_bAllowOpt=true);
     void DefineInfixOprt(const string_type &a_strName, fun_type1 a_pOprt, int a_iPrec=prINFIX, bool a_bAllowOpt=true);
 

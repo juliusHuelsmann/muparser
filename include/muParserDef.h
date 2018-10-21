@@ -266,7 +266,7 @@ namespace mu
   // Data container types
 
   /** \brief Type used for storing variables. */
-  typedef std::map<string_type, value_type*> varmap_type;
+  typedef std::map<string_type, const value_type*> varmap_type;
   
   /** \brief Type used for storing constants. */
   typedef std::map<string_type, value_type> valmap_type;

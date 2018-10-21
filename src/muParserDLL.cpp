@@ -767,7 +767,7 @@ API_EXPORT(int) mupGetVarNum(muParserHandle_t a_hParser)
 API_EXPORT(void) mupGetVar(muParserHandle_t a_hParser,
     unsigned a_iVar,
     const muChar_t **a_szName,
-    muFloat_t **a_pVar)
+    const muFloat_t **a_pVar)
 {
     // A static buffer is needed for the name since i can't return the
     // pointer from the map.
@@ -844,7 +844,7 @@ API_EXPORT(int) mupGetExprVarNum(muParserHandle_t a_hParser)
 API_EXPORT(void) mupGetExprVar(muParserHandle_t a_hParser,
     unsigned a_iVar,
     const muChar_t **a_szName,
-    muFloat_t **a_pVar)
+    const muFloat_t **a_pVar)
 {
     // A static buffer is needed for the name since i can't return the
     // pointer from the map.

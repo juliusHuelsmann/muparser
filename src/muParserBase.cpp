@@ -592,7 +592,7 @@ namespace mu
       \post Will reset the Parser to string parsing mode.
       \throw ParserException in case the name contains invalid signs or a_pVar is NULL.
   */
-  void ParserBase::DefineVar(const string_type &a_sName, value_type *a_pVar)
+  void ParserBase::DefineVar(const string_type &a_sName, const value_type *a_pVar)
   {
     if (a_pVar==0)
       Error(ecINVALID_VAR_PTR);
