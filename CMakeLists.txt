@@ -44,7 +44,7 @@ elseif(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wno-long-long -pedantic")
 endif()
 
-include_directories("${CMAKE_SOURCE_DIR}/include")
+include_directories("${PROJECT_SOURCE_DIR}/include")
 add_library(muparser
     src/muParserBase.cpp
     src/muParserBytecode.cpp
@@ -87,6 +87,9 @@ if(ENABLE_SAMPLES)
 
   add_executable(example2 samples/example2/example2.c)
   target_link_libraries(example2 muparser)
+
+  add_executable(example3 samples/example3/main.cpp)
+  target_link_libraries(example3 muparser)
 endif()
 
 # The GNUInstallDirs defines ${CMAKE_INSTALL_DATAROOTDIR}
@@ -121,7 +124,7 @@ install(FILES
 # Define variables for the pkg-config file
 set(PACKAGE_NAME muparser)
 configure_file(
-    "${CMAKE_SOURCE_DIR}/build/autoconf/muparser.pc.cmakein"
+  "${PROJECT_SOURCE_DIR}/build/autoconf/muparser.pc.cmakein"
     "${CMAKE_BINARY_DIR}/muparser.pc"
     @ONLY
 )
