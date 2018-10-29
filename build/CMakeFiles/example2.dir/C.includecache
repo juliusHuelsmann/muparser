@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/muParserDLL.h
+muParserFixes.h
+../include/muParserFixes.h
+
+../include/muParserFixes.h
+
+/mnt/data/online/repos/dima/SENSE-hackathon/vendor/muparser/samples/example2/example2.c
+string.h
+-
+stdio.h
+-
+stdlib.h
+-
+wchar.h
+-
+muParserDLL.h
+/mnt/data/online/repos/dima/SENSE-hackathon/vendor/muparser/samples/example2/muParserDLL.h
+

@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${prefix}/lib64
+includedir=${prefix}/include
+
+Name: muparser
+Description: Mathematical expressions parser library
+Version: 2.2.6
+Requires:
+Libs: -L${libdir} -lmuparser
+Cflags: -I${includedir}

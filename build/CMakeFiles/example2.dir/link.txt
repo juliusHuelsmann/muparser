@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/example2.dir/samples/example2/example2.c.o  -o example2 -Wl,-rpath,/mnt/data/online/repos/dima/SENSE-hackathon/vendor/muparser/build libmuparser.so.2.2.6 

@@ -1,0 +1,1 @@
+/usr/bin/c++   -Wall -Wno-long-long -pedantic -O3 -DNDEBUG  -rdynamic CMakeFiles/example1.dir/samples/example1/example1.cpp.o  -o example1 -Wl,-rpath,/mnt/data/online/repos/dima/SENSE-hackathon/vendor/muparser/build libmuparser.so.2.2.6 
