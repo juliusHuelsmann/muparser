@@ -2,7 +2,7 @@
 #include <muParser.h>
 
 // Function callback
-double MySqr(double a_fVal) 
+long double MySqr(long double a_fVal)
 { 
   return a_fVal*a_fVal; 
 }
