@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 
   try
   {
-    double fVal = 1;
+    long double fVal = 1;
     Parser p;
     p.DefineVar("a", &fVal); 
     p.DefineFun("MySqr", MySqr); 
