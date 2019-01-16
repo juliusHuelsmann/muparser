@@ -2,7 +2,7 @@
 #include <muParser.h>
 
 // Function callback
-double MySqr(double a_fVal) 
+long double MySqr(long double a_fVal)
 { 
   return a_fVal*a_fVal; 
 }
@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 
   try
   {
-    double fVal = 1;
+    long double fVal = 1;
     Parser p;
     p.DefineVar("a", &fVal); 
     p.DefineFun("MySqr", MySqr); 

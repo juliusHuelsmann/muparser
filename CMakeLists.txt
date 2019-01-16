@@ -20,7 +20,7 @@ set(MUPARSER_VERSION_PATCH 6)
 set(MUPARSER_VERSION ${MUPARSER_VERSION_MAJOR}.${MUPARSER_VERSION_MINOR}.${MUPARSER_VERSION_PATCH})
 
 # Build options
-option(ENABLE_SAMPLES "Build the samples" ON)
+option(ENABLE_SAMPLES "Build the samples" OFF)
 option(ENABLE_OPENMP "Enable OpenMP for multithreading" OFF)
 option(BUILD_SHARED_LIBS "Build shared/static libs" ON)
 
@@ -96,13 +96,15 @@ endif()
 # See https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html
 include (GNUInstallDirs)
 
-install(TARGETS muparser
+OPTION(INSTALL_STUFF "Install option?" OFF)
+if(${INSTALL_STUFF})
+  install(TARGETS muparser
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT RuntimeLibraries
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR} COMPONENT Development
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT RuntimeLibraries
-)
+    )
 
-install(FILES
+  install(FILES
     include/muParserBase.h
     include/muParserBytecode.h
     include/muParserCallback.h
@@ -119,16 +121,19 @@ install(FILES
     include/muParserTokenReader.h
     DESTINATION include
     COMPONENT Development
-)
+    )
+endif()
 
 # Define variables for the pkg-config file
 set(PACKAGE_NAME muparser)
 configure_file(
   "${PROJECT_SOURCE_DIR}/build/autoconf/muparser.pc.cmakein"
-    "${CMAKE_BINARY_DIR}/muparser.pc"
-    @ONLY
-)
+  "${CMAKE_BINARY_DIR}/muparser.pc"
+  @ONLY
+  )
+if (${INSTALL_STUFF})
 install(
-    FILES "${CMAKE_BINARY_DIR}/muparser.pc"
-    DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig"
-)
+  FILES "${CMAKE_BINARY_DIR}/muparser.pc"
+  DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig"
+  )
+endif()
