@@ -22,8 +22,15 @@
   DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
 */
+
 #ifndef MU_PARSER_BYTECODE_H
 #define MU_PARSER_BYTECODE_H
+
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnested-anon-types"
+#endif // __clang__
+
 
 #include <cassert>
 #include <string>
@@ -37,6 +44,7 @@
 /** \file
     \brief Definition of the parser bytecode class.
 */
+
 
 
 namespace mu
@@ -136,6 +144,11 @@ public:
 
 } // namespace mu
 
+
+
+
+#ifdef __clang__
+#pragma clang diagnostic pop
 #endif
 
-
+#endif
